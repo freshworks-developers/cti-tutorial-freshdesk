@@ -82,7 +82,7 @@ async function createTicket() {
     status: 2
   }
   try {
-    const ticketData = await client.request.post('https://<%= iparam.freshdesk_domain %>/api/v2/tickets',
+    const ticketData = await client.request.post('https://<%= iparam.freshdesk_subdomain %>.freshdesk.com/api/v2/tickets',
       {
         headers: {
           Authorization: '<%= encode(iparam.freshdesk_api_key) %>'
@@ -103,7 +103,7 @@ async function createTicket() {
  * It retrieves the list of contacts from Freshdesk
  */
 function getContacts() {
-  const url = 'https://<%= iparam.freshdesk_domain %>/api/v2/contacts';
+  const url = 'https://<%= iparam.freshdesk_subdomain %>.freshdesk.com/api/v2/contacts';
   const options = {
     headers: {
       Authorization: 'Basic <%= encode(iparam.freshdesk_api_key) %>'
@@ -111,7 +111,7 @@ function getContacts() {
   }
   client.request.get(url, options).then(contacts => {
     console.info('Success: Got contacts list');
-    console.info(JSON.parse(contacts.response));
+    console.table(JSON.parse(contacts.response));
     return JSON.parse(contacts.response);
   }, error => {
     console.error(error);
@@ -129,7 +129,7 @@ function createContact() {
     phone: '+0123456789',
 
   }
-  const url = 'https://<%= iparam.freshdesk_domain %>/api/v2/contacts';
+  const url = 'https://<%= iparam.freshdesk_subdomain %>.freshdesk.com/api/v2/contacts';
   const options = {
     headers: {
       Authorization: 'Basic <%= encode(iparam.freshdesk_api_key) %>'

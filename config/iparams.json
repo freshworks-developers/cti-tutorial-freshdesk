@@ -1,8 +1,8 @@
 {
-  "freshdesk_domain": {
-    "display_name": "Freshdesk Domain",
+  "freshdesk_subdomain": {
+    "display_name": "Freshdesk Subdomain",
     "type": "text",
-    "description": "Your Freshdesk domain in complete format. Eg. mycompany.freshdesk.com",
+    "description": "Your Freshdesk subdomain without .freshdesk.com suffix",
     "required": true
   },
   "freshdesk_api_key": {
