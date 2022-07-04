@@ -6,7 +6,7 @@ These are the resource files needed for a CTI app development with Freshdesk tut
 
 Common features available for all the products and other app locations. Cloud-Telephony Integrations (CTI) require special features to accommodate certain features in the app. Other apps may not require these features.
 
-[In this tutorial](https://developers.freshworks.com/tutorials/codelabs/cti-app-development-with-freshdesk), we will explore what are the features are available to make CTI apps development easier and work seamlessly in Freshdesk.
+[In this tutorial](https://developers.freshworks.com/tutorials/codelabs/develop-cti-app-for-freshdesk), we will explore what are the features are available to make CTI apps development easier and work seamlessly in Freshdesk.
 
 ## Issues?
 
