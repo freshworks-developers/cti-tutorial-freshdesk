@@ -18,7 +18,7 @@ function showNotify(type, message) {
  */
 function goToTicket(ticketId) {
   client.interface.trigger("click", { id: "ticket", value: ticketId })
-    .then(function (data) {
+    .then(function () {
       console.info('successfully navigated to ticket');
     }).catch(function (error) {
       console.error('Error: Failed to navigate to ticket');
@@ -33,7 +33,7 @@ function goToTicket(ticketId) {
  */
 function goToContact(contactId) {
   client.interface.trigger("click", { id: "contact", value: contactId })
-    .then(function (data) {
+    .then(function () {
       console.info('successfully navigated to contact');
     }).catch(function (error) {
       console.error('Error: Failed to navigate to contact');
@@ -48,7 +48,7 @@ function goToContact(contactId) {
  */
 function showMissedCall(missedCalls) {
   client.interface.trigger("show", { id: "missedCall", value: missedCalls })
-    .then(function (data) {
+    .then(function () {
       console.info('successfully shown missed calls');
     }).catch(function (error) {
       console.error('Error: failed to show missed calls');
@@ -61,7 +61,7 @@ function showMissedCall(missedCalls) {
  */
 function hideMissedCall() {
   client.interface.trigger("hide", { id: "missedCall" })
-    .then(function (data) {
+    .then(function () {
       console.info('successfully hidden missed calls');
     }).catch(function (error) {
       console.error('Error: failed to hide missed calls');
@@ -100,22 +100,6 @@ async function createTicket() {
  * It retrieves the list of contacts from Freshdesk
  */
 async function getContacts() {
-  // const url = 'https://<%= iparam.freshdesk_subdomain %>.freshdesk.com/api/v2/contacts';
-  // const options = {
-  //   headers: {
-  //     Authorization: 'Basic <%= encode(iparam.freshdesk_api_key) %>'
-  //   }
-  // }
-  // client.request.get(url, options).then(contacts => {
-  //   console.info('Success: Got contacts list');
-  //   console.table(JSON.parse(contacts.response));
-  //   return JSON.parse(contacts.response);
-  // }, error => {
-  //   console.error('Error: Failed to get contacts from Freshdesk');
-  //   console.error(error);
-  //   return reject(error);
-  // });
-
   try {
     let contacts = await client.request.invokeTemplate("getContacts");
     console.table(JSON.parse(contacts.response));
@@ -183,7 +167,7 @@ function openApp() {
  * To close the CTI app
  */
 function closeApp() {
-  client.interface.trigger("hide", { id: "softphone" }).then(function (data) {
+  client.interface.trigger("hide", { id: "softphone" }).then(function () {
     console.info('successfully closed the CTI app');
     showNotify('success', 'Successfully closed the CTI app.');
   }).catch(function (error) {

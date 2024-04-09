@@ -1,18 +1,21 @@
 {
-  "platform-version": "2.3",
+  "platform-version": "3.0",
   "modules": {
     "common": {
-      "requests": {
-        "createTicket": {}
-      }
-    },
-    "support_ticket": {
       "location": {
         "cti_global_sidebar": {
           "url": "index.html",
           "icon": "styles/images/icon.svg"
         }
+      },
+      "requests": {
+        "createTicket": {}
       }
-    }
+    },
+    "support_ticket": {}
+  },
+  "engines": {
+    "node": "18.18.2",
+    "fdk": "9.1.0"
   }
 }
