@@ -1,21 +1,37 @@
 {
   "platform-version": "3.0",
+  "app": {
+    "tracking_id": "ctitutorialzoomdesk1",
+    "start_time": "2026-06-04T09:30:00.000Z"
+  },
   "modules": {
     "common": {
       "location": {
         "cti_global_sidebar": {
           "url": "index.html",
-          "icon": "styles/images/icon.svg"
+          "icon": "icon.svg"
         }
       },
       "requests": {
-        "createTicket": {}
+        "zoomAccessToken": {},
+        "zoomUserMe": {}
+      },
+      "functions": {
+        "getAgent": {
+          "timeout": 20
+        }
       }
     },
     "support_ticket": {}
   },
+  "metaConfig": {
+    "framework": "react"
+  },
+  "scripts": {
+    "fdk-unit-test": "vitest run --coverage"
+  },
   "engines": {
-    "node": "18.18.2",
-    "fdk": "9.1.0"
+    "node": "24.11.1",
+    "fdk": "10.1.2"
   }
 }

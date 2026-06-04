@@ -1,36 +1,24 @@
 {
-  "createTicket": {
+  "zoomAccessToken": {
     "schema": {
       "protocol": "https",
       "method": "POST",
-      "host": "<%= iparam.freshdesk_subdomain %>.freshdesk.com",
-      "path": "/api/v2/tickets",
+      "host": "zoom.us",
+      "path": "/oauth/token",
       "headers": {
-        "Authorization": "Basic <%= encode(iparam.freshdesk_api_key) %>",
-        "Content-Type": "application/json"
+        "Authorization": "Basic <%= encode(context.basic_credentials) %>",
+        "Content-Type": "application/x-www-form-urlencoded"
       }
     }
   },
-  "getContacts": {
+  "zoomUserMe": {
     "schema": {
       "protocol": "https",
       "method": "GET",
-      "host": "<%= iparam.freshdesk_subdomain %>.freshdesk.com",
-      "path": "/api/v2/contacts",
+      "host": "api.zoom.us",
+      "path": "/v2/users/me",
       "headers": {
-        "Authorization": "Basic <%= encode(iparam.freshdesk_api_key) %>",
-        "Content-Type": "application/json"
-      }
-    }
-  },
-  "createContacts": {
-    "schema": {
-      "protocol": "https",
-      "method": "POST",
-      "host": "<%= iparam.freshdesk_subdomain %>.freshdesk.com",
-      "path": "/api/v2/contacts",
-      "headers": {
-        "Authorization": "Basic <%= encode(iparam.freshdesk_api_key) %>",
+        "Authorization": "Bearer <%= context.access_token %>",
         "Content-Type": "application/json"
       }
     }

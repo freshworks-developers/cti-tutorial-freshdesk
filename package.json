@@ -1,0 +1,22 @@
+{
+  "name": "zoomdesk",
+  "version": "1.0.0",
+  "description": "Zoom CTI dialer for Freshdesk — agent profile and outbound calls via Zoom desktop",
+  "dependencies": {
+    "react": "~18.2.0",
+    "react-dom": "~18.2.0",
+    "@freshworks/crayons": "4.3.0-beta.28"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "~7.24.0",
+    "@babel/preset-react": "~7.23.3",
+    "@testing-library/react": "~14.2.1",
+    "@vitejs/plugin-react": "~4.7.0",
+    "eslint-plugin-react": "~7.34.1",
+    "vite": "~5.0.0",
+    "vitest": "~2.1.8",
+    "jsdom": "~26.1.0",
+    "@vitest/coverage-v8": "~2.1.8",
+    "identity-obj-proxy": "~3.0.0"
+  }
+}

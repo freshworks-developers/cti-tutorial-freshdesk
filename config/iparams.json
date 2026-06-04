@@ -1,14 +1,20 @@
 {
-  "freshdesk_subdomain": {
-    "display_name": "Freshdesk Subdomain",
+  "zoom_account_id": {
+    "display_name": "Zoom Account ID",
+    "description": "From your Zoom Server-to-Server OAuth app (App Credentials).",
     "type": "text",
-    "description": "Your Freshdesk subdomain without .freshdesk.com suffix",
     "required": true
   },
-  "freshdesk_api_key": {
-    "display_name": "Freshdesk API Key",
+  "zoom_client_id": {
+    "display_name": "Zoom Client ID",
+    "description": "Client ID from the same S2S app.",
     "type": "text",
-    "description": "Your Freshdesk API key.",
+    "required": true
+  },
+  "zoom_client_secret": {
+    "display_name": "Zoom Client Secret",
+    "description": "Client secret from the same S2S app.",
+    "type": "text",
     "required": true,
     "secure": true
   }

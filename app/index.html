@@ -1,55 +1,14 @@
-<html>
-
-<head>
-  <script src="{{{appclient}}}"></script>
-  <link rel="stylesheet" type="text/css" href="styles/style.css" />
-  <link rel="stylesheet" type="text/css"
-    href="https://static.freshdev.io/fdk/2.0/assets/freshdesk.css" />
-  <script type="module"
-    src="https://unpkg.com/@freshworks/crayons/dist/crayons/crayons.esm.js">
-    </script>
-  <script nomodule
-    src="https://unpkg.com/@freshworks/crayons/dist/crayons/crayons.js">
-    </script>
-
-</head>
-
-<body>
-  <div class="fw-widget-wrapper">
-    <h3>This is the CTI app placeholder</h3>
-    <p>Click on the buttons to see each of the actions:</p>
-    <p id="appText"></p>
-    <fw-button class="action-buttons" id="btnGetUser" size="small"
-      color="primary">Get Current User
-    </fw-button>
-    <fw-button class="action-buttons" id="btnClose" size="small"
-      color="primary">Close app
-    </fw-button><br><br>
-    <fw-button class="action-buttons" id="btnShowMissedCalls" size="small"
-      color="primary">
-      Show missed calls
-    </fw-button><br><br>
-    <fw-button class="action-buttons" id="btnHideMissedCalls" size="small"
-      color="primary">
-      Hide missed calls
-    </fw-button><br><br>
-    <fw-button class="action-buttons" id="btnCreateTicket" size="small"
-      color="primary">Create Ticket
-    </fw-button><br><br><br>
-    <fw-button class="action-buttons" id="btnGotoTicket" size="small"
-      color="primary">Goto Ticket
-    </fw-button><br><br>
-    <fw-button class="action-buttons" id="btnGetContacts" size="small"
-      color="primary">Get Contacts
-    </fw-button><br><br>
-    <fw-button class="action-buttons" id="btnCreateContact" size="small"
-      color="primary">Create
-      Contact</fw-button><br><br>
-    <fw-button class="action-buttons" id="btnGotoContact" size="small"
-      color="primary">Goto Contact
-    </fw-button>
-  </div>
-</body>
-<script src="scripts/app.js"></script>
-
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>zoomdesk CTI</title>
+    <script src="{{{appclient}}}"></script>
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <script type="module" src="./components/CtiMain.jsx"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
 </html>

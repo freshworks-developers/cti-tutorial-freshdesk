@@ -1,21 +1,213 @@
-html {
+.zoom-cti-root,
+.zoomdesk {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  color: #232333;
+  background: #fff;
   box-sizing: border-box;
-  border: 0.5px solid blue;
+  min-height: 100%;
+  padding: 0 14px 14px;
 }
 
-*,
-*:after,
-*::before {
-  box-sizing: inherit;
+.zoomdesk * {
+  box-sizing: border-box;
 }
 
-.fw-widget-wrapper {
+.zoomdesk-header {
   display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
   align-items: center;
+  justify-content: space-between;
+  padding: 12px 0 8px;
+  border-bottom: 1px solid #e8eaed;
+  margin: 0 -14px;
+  padding-left: 14px;
+  padding-right: 14px;
 }
 
-.action-buttons {
-  margin-bottom: 10px;
+.zoomdesk-brand {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #0e71eb;
+}
+
+.zoomdesk-logo-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  background: #0e71eb;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.zoomdesk-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.zoomdesk-ready {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: #e8f5e9;
+  color: #1b5e20;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.zoomdesk-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #31a24c;
+}
+
+.zoomdesk-refresh {
+  padding: 4px 12px;
+  border: 1px solid #0e71eb;
+  border-radius: 4px;
+  background: #fff;
+  color: #0e71eb;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.zoomdesk-refresh:hover {
+  background: #f0f6ff;
+}
+
+.zoomdesk-loading {
+  text-align: center;
+  padding: 8px;
+}
+
+.zoomdesk-error {
+  color: #c82124;
+  font-size: 12px;
+  margin: 0 0 8px;
+}
+
+.zoomdesk-agent-card {
+  background: #f5f7f9;
+  border-radius: 6px;
+  padding: 8px 10px;
+  margin-bottom: 12px;
+  font-size: 12px;
+}
+
+.zoomdesk-agent-card p {
+  margin: 3px 0;
+}
+
+.zoomdesk-agent-card span {
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.zoomdesk-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d7dce3;
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 14px;
+  outline: none;
+}
+
+.zoomdesk-input:focus {
+  border-color: #0e71eb;
+}
+
+.zoomdesk-keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 56px);
+  gap: 12px 14px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.zoomdesk-key {
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border: 1px solid #c5cdd5;
+  border-radius: 50%;
+  background: #fff;
+  font-size: 20px;
+  color: #232333;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.zoomdesk-key:hover {
+  background: #f0f6ff;
+  border-color: #0e71eb;
+}
+
+.zoomdesk-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.zoomdesk-clear {
+  padding: 8px 14px;
+  border: 1px solid #d7dce3;
+  border-radius: 4px;
+  background: #fff;
+  font-size: 12px;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+.zoomdesk-call {
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: #0e71eb;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(14, 113, 235, 0.35);
+}
+
+.zoomdesk-call-icon {
+  font-size: 22px;
+}
+
+.zoomdesk-call-msg {
+  font-size: 12px;
+  color: #0e71eb;
+  text-align: center;
+  margin: 0 0 6px;
+}
+
+.zoomdesk-hint {
+  font-size: 11px;
+  color: #9ca3af;
+  text-align: center;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.zoomdesk-loading-text {
+  padding: 16px;
+  color: #6b7280;
 }
