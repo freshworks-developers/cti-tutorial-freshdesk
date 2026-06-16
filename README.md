@@ -6,12 +6,60 @@ Built on Freshworks Platform **3.0** (React Meta, Node **24.11.1**, FDK **10.1.2
 
 ![zoomdesk — Freshdesk CTI app synced with Zoom](app/styles/images/zoom-banner.png)
 
+## Description
+
+Nimbus Contact Center agents work Freshdesk tickets while voice runs on Zoom. **zoomdesk** confirms the linked Zoom agent in the CTI strip and prototypes a Crayons dial pad before production telephony. See [`usecase.md`](usecase.md) for the full Nimbus operational scenarios.
+
+### Core Functionality
+
+1. **Agent card** — real integration showing name, email, and Zoom user ID from `/users/me` via server-side OAuth
+2. **Dial pad + Call** — UI demo only; illustrates Crayons styling and CTI layout (does not place production calls)
+3. **SMI `getAgent`** — exchanges S2S credentials and fetches Zoom profile server-side
+4. **CTI resize** — sidebar tuned for the Freshdesk headset strip on activate
+
 ## What this app does
 
 | Part | Purpose |
 |------|---------|
 | **Agent card** | Real integration — shows name, email, and Zoom user ID from Zoom (`/users/me`) via server-side OAuth |
 | **Dial pad + Call** | **UI demo only** — illustrates Crayons styling and CTI layout; does not place production calls |
+
+## User Interfaces
+
+| Surface | Placement | Behavior |
+| --- | --- | --- |
+| `app/index.html` | `common.cti_global_sidebar` | Zoom agent card, demo dial pad, Refresh |
+
+## Platform 3.0 Features Used
+
+### 1. CTI Global Sidebar — Freshdesk Headset Strip
+
+The app loads in `cti_global_sidebar` with a blue **Z** icon. Agents open the CTI panel from the Freshdesk headset strip.
+
+### 2. SMI — `getAgent`
+
+`client.request.invoke('getAgent')` triggers serverless OAuth token exchange and Zoom `GET /users/me`.
+
+### 3. Request Methods — Zoom OAuth and User API
+
+| Template | Purpose |
+| --- | --- |
+| `zoomAccessToken` | POST token with S2S credentials |
+| `zoomUserMe` | GET agent profile |
+
+### 4. Installation Parameters — Three Zoom Fields
+
+Account ID, Client ID, and secure Client Secret from the Zoom Server-to-Server OAuth app.
+
+### 5. Crayons UI Components
+
+The app uses Freshworks Crayons v4 design system:
+
+| Component | Usage |
+| --- | --- |
+| `FwSpinner` | Loading state while fetching agent profile |
+| Circular keypad | Demo dial pad layout |
+| Custom CSS | Zoom-blue branding and CTI sizing |
 
 ## Prerequisites
 
@@ -141,6 +189,34 @@ cti-tutorial-freshdesk/
 
 ```bash
 fdk validate
+npm run fdk-unit-test
 ```
 
 Target: **0 platform errors**, **0 lint errors**.
+
+## Testing
+
+```bash
+npm run fdk-unit-test
+```
+
+Reset local installation parameters when re-testing Zoom credentials:
+
+```bash
+rm .fdk/store.sqlite
+fdk run
+```
+
+## Key Learnings
+
+1. **Secrets stay server-side** — Zoom Client Secret is a secure iparam; only `getAgent` invokes OAuth templates.
+2. **CTI vs ticket sidebar** — `cti_global_sidebar` uses different resize and event patterns (`cti.triggerDialer`) than ticket sidebars.
+3. **Demo vs production calling** — document dial pad scope clearly; use Zoom's official integration for live telephony.
+4. **Minimal S2S scope** — `user:read:admin` is enough for agent identity without Contact Center API complexity.
+
+## Resources
+
+- [Freshdesk CTI tutorial](https://developers.freshworks.com/tutorials/codelabs/develop-cti-app-for-freshdesk)
+- [CTI global sidebar placement](https://developers.freshworks.com/docs/app-sdk/v3.0/support_ticket/front-end-apps/app-locations/#cti-global-sidebar)
+- [Request methods](https://developers.freshworks.com/docs/app-sdk/v3.0/support_ticket/advanced-interfaces/request-method/)
+- [Serverless functions (SMI)](https://developers.freshworks.com/docs/app-sdk/v3.0/common/serverless-apps/server-method-invocation/)
